@@ -3,15 +3,15 @@
 //ReactDOM.render(element, document.querySelector('#app'))
 
 //With JSX
-let name = 'Sattar'
-
-function App() {
-  return (
-    <div>
-      <p>{name}</p>
-      <button>Change Name</button>
-    </div>
-  )
+class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <p>{this.props.name}</p>
+        <button>Change Name</button>
+      </div>
+    )
+  }
 }
 
-ReactDOM.render(<App />, document.querySelector('#app'))
+ReactDOM.render(<App name="Sattar"/>, document.querySelector('#app'))
