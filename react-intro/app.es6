@@ -5,18 +5,13 @@
 //With JSX
 let name = 'Sattar'
 
-function changeName() {
-  name = 'Ali'
-  const element = (<div>
+function App() {
+  return (
+    <div>
       <p>{name}</p>
-      <button onClick={changeName}>Change Name</button>
-  </div>)
-  ReactDOM.render(element, document.querySelector('#app'))
+      <button>Change Name</button>
+    </div>
+  )
 }
 
-const element = (<div>
-    <p>{name}</p>
-    <button onClick={changeName}>Change Name</button>
-</div>)
-
-ReactDOM.render(element, document.querySelector('#app'))
+ReactDOM.render(<App />, document.querySelector('#app'))

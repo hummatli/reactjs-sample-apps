@@ -7,38 +7,21 @@
 //With JSX
 var name = 'Sattar';
 
-function changeName() {
-    name = 'Ali';
-    var element = React.createElement(
-        'div',
-        null,
-        React.createElement(
-            'p',
-            null,
-            name
-        ),
-        React.createElement(
-            'button',
-            { onClick: changeName },
-            'Change Name'
-        )
-    );
-    ReactDOM.render(element, document.querySelector('#app'));
-}
-
-var element = React.createElement(
+function App() {
+  return React.createElement(
     'div',
     null,
     React.createElement(
-        'p',
-        null,
-        name
+      'p',
+      null,
+      name
     ),
     React.createElement(
-        'button',
-        { onClick: changeName },
-        'Change Name'
+      'button',
+      null,
+      'Change Name'
     )
-);
+  );
+}
 
-ReactDOM.render(element, document.querySelector('#app'));
+ReactDOM.render(React.createElement(App, null), document.querySelector('#app'));
