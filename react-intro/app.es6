@@ -3,7 +3,20 @@
 //ReactDOM.render(element, document.querySelector('#app'))
 
 //With JSX
-const name = 'Sattar'
+let name = 'Sattar'
 
-const element = <p>{name}</p>
+function changeName() {
+  name = 'Ali'
+  const element = (<div>
+      <p>{name}</p>
+      <button onClick={changeName}>Change Name</button>
+  </div>)
+  ReactDOM.render(element, document.querySelector('#app'))
+}
+
+const element = (<div>
+    <p>{name}</p>
+    <button onClick={changeName}>Change Name</button>
+</div>)
+
 ReactDOM.render(element, document.querySelector('#app'))
