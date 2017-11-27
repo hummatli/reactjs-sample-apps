@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -16,27 +16,39 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var App = function (_React$Component) {
   _inherits(App, _React$Component);
 
-  function App() {
+  function App(props) {
     _classCallCheck(this, App);
 
-    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+
+    _this.state = {
+      name: props.name
+    };
+    return _this;
   }
 
   _createClass(App, [{
-    key: "render",
+    key: 'changeName',
+    value: function changeName() {
+      this.setState({
+        name: 'Ali'
+      });
+    }
+  }, {
+    key: 'render',
     value: function render() {
       return React.createElement(
-        "div",
+        'div',
         null,
         React.createElement(
-          "p",
+          'p',
           null,
-          this.props.name
+          this.state.name
         ),
         React.createElement(
-          "button",
-          null,
-          "Change Name"
+          'button',
+          { onClick: this.changeName.bind(this) },
+          'Change Name'
         )
       );
     }
@@ -45,4 +57,4 @@ var App = function (_React$Component) {
   return App;
 }(React.Component);
 
-ReactDOM.render(React.createElement(App, { name: "Sattar" }), document.querySelector('#app'));
+ReactDOM.render(React.createElement(App, { name: 'Sattar' }), document.querySelector('#app'));

@@ -4,11 +4,25 @@
 
 //With JSX
 class App extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      name: props.name
+    }
+  }
+
+  changeName() {
+    this.setState({
+      name: 'Ali'
+    })
+  }
+
   render() {
     return (
       <div>
-        <p>{this.props.name}</p>
-        <button>Change Name</button>
+        <p>{this.state.name}</p>
+        <button onClick={this.changeName.bind(this)}>Change Name</button>
       </div>
     )
   }
