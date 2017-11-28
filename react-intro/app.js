@@ -47,12 +47,15 @@ var App = function (_React$Component) {
     key: 'render',
     value: function render() {
       var updateParagraph = '';
+      var nameParagraphClass = '';
+
       if (this.state.name !== this.props.name) {
         updateParagraph = React.createElement(
           'p',
           null,
           'Name updated!'
         );
+        nameParagraphClass = 'updated';
       }
 
       var list = this.state.elements.map(function (el) {
@@ -71,7 +74,7 @@ var App = function (_React$Component) {
         null,
         React.createElement(
           'p',
-          null,
+          { className: nameParagraphClass },
           this.state.name
         ),
         updateParagraph,
