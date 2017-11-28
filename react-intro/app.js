@@ -15,7 +15,9 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function Username(props) {
   return React.createElement(
     'p',
-    null,
+    { onClick: function onClick() {
+        return props.nameClickedHandler(props.username);
+      } },
     props.username
   );
 }
@@ -59,6 +61,11 @@ var App = function (_React$Component) {
       });
     }
   }, {
+    key: 'userWasClicked',
+    value: function userWasClicked(name) {
+      alert(name);
+    }
+  }, {
     key: 'render',
     value: function render() {
       var updateParagraph = '';
@@ -87,8 +94,8 @@ var App = function (_React$Component) {
       return React.createElement(
         'div',
         null,
-        React.createElement(Username, { username: 'Ali' }),
-        React.createElement(Username, { username: 'Hasan' }),
+        React.createElement(Username, { username: 'Ali', nameClickedHandler: this.userWasClicked }),
+        React.createElement(Username, { username: 'Hasan', nameClickedHandler: this.userWasClicked }),
         React.createElement(
           'p',
           { className: nameParagraphClass },
