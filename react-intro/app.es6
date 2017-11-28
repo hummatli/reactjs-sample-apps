@@ -8,7 +8,8 @@ class App extends React.Component {
     super(props)
 
     this.state = {
-      name: props.name
+      name: props.name,
+      elements: []
     }
   }
 
@@ -18,17 +19,30 @@ class App extends React.Component {
     })
   }
 
+  addElement() {
+    const oldElements = this.state.elements
+    this.setState({
+      elements: oldElements.concat(oldElements.length + 1)
+    })
+  }
+
   render() {
     let updateParagraph = ''
     if(this.state.name !== this.props.name) {
       updateParagraph = <p>Name updated!</p>
     }
 
+    let list = this.state.elements.map(el => <li key={el}>{el}</li>)
+
     return (
       <div>
         <p>{this.state.name}</p>
         {updateParagraph}
         <button onClick={this.changeName.bind(this)}>Change Name</button>
+        <button onClick={this.addElement.bind(this)}>New Element</button>
+        <ul>
+          {list}
+        </ul>
       </div>
     )
   }

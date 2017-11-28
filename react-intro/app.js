@@ -22,7 +22,8 @@ var App = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
     _this.state = {
-      name: props.name
+      name: props.name,
+      elements: []
     };
     return _this;
   }
@@ -32,6 +33,14 @@ var App = function (_React$Component) {
     value: function changeName() {
       this.setState({
         name: 'Ali'
+      });
+    }
+  }, {
+    key: 'addElement',
+    value: function addElement() {
+      var oldElements = this.state.elements;
+      this.setState({
+        elements: oldElements.concat(oldElements.length + 1)
       });
     }
   }, {
@@ -46,6 +55,14 @@ var App = function (_React$Component) {
         );
       }
 
+      var list = this.state.elements.map(function (el) {
+        return React.createElement(
+          'li',
+          { key: el },
+          el
+        );
+      });
+
       return React.createElement(
         'div',
         null,
@@ -59,6 +76,16 @@ var App = function (_React$Component) {
           'button',
           { onClick: this.changeName.bind(this) },
           'Change Name'
+        ),
+        React.createElement(
+          'button',
+          { onClick: this.addElement.bind(this) },
+          'New Element'
+        ),
+        React.createElement(
+          'ul',
+          null,
+          list
         )
       );
     }
