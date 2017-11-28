@@ -32,7 +32,14 @@ class App extends React.Component {
       updateParagraph = <p>Name updated!</p>
     }
 
-    let list = this.state.elements.map(el => <li key={el}>{el}</li>)
+    let list = this.state.elements.map(
+      el => {
+        const liStyle = {
+          backgroundColor: el % 2 === 0 ? 'green' : 'red'
+        }
+        return <li key={el} style={liStyle}>{el}</li>
+      }
+    )
 
     return (
       <div>

@@ -56,9 +56,12 @@ var App = function (_React$Component) {
       }
 
       var list = this.state.elements.map(function (el) {
+        var liStyle = {
+          backgroundColor: el % 2 === 0 ? 'green' : 'red'
+        };
         return React.createElement(
           'li',
-          { key: el },
+          { key: el, style: liStyle },
           el
         );
       });
