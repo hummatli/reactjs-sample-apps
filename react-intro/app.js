@@ -37,6 +37,15 @@ var App = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      var updateParagraph = '';
+      if (this.state.name !== this.props.name) {
+        updateParagraph = React.createElement(
+          'p',
+          null,
+          'Name updated!'
+        );
+      }
+
       return React.createElement(
         'div',
         null,
@@ -45,6 +54,7 @@ var App = function (_React$Component) {
           null,
           this.state.name
         ),
+        updateParagraph,
         React.createElement(
           'button',
           { onClick: this.changeName.bind(this) },
