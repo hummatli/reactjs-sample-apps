@@ -12,8 +12,9 @@ function Hobby(props) {
   return React.createElement(
     'li',
     {
-      onClick: props.nameClickedHandler
-    },
+      onClick: function onClick() {
+        props.nameClickedHandler(props.hobby.id);
+      } },
     props.hobby.name
   );
 }
@@ -103,9 +104,7 @@ var App = function (_React$Component) {
       var _this2 = this;
 
       var list = this.state.hobbies.map(function (el) {
-        return React.createElement(Hobby, { key: el.id, hobby: el, nameClickedHandler: function nameClickedHandler() {
-            _this2.removeHobby(el.id);
-          } });
+        return React.createElement(Hobby, { key: el.id, hobby: el, nameClickedHandler: _this2.removeHobby });
       });
 
       var classCounter = this.state.hobbies.length > 3 ? "more" : "less";

@@ -1,8 +1,9 @@
 function Hobby(props) {
   return (
     <li
-      onClick={props.nameClickedHandler}
-      >{props.hobby.name}</li>
+      onClick={() => {props.nameClickedHandler(props.hobby.id)}}>
+      {props.hobby.name}
+    </li>
   )
 }
 
@@ -80,7 +81,7 @@ class App extends React.Component {
   render() {
     let list = this.state.hobbies.map(
       el => {
-        return <Hobby key={el.id} hobby={el} nameClickedHandler={() => {this.removeHobby(el.id)}}/>
+        return <Hobby key={el.id} hobby={el} nameClickedHandler={this.removeHobby}/>
       }
     )
 
