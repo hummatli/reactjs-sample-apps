@@ -12,7 +12,14 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 //const element = React.createElement('p', null, 'Sattar')
 //ReactDOM.render(element, document.querySelector('#app'))
 
-//With JSX
+function Username(props) {
+  return React.createElement(
+    'p',
+    null,
+    props.username
+  );
+}
+
 var App = function (_React$Component) {
   _inherits(App, _React$Component);
 
@@ -80,6 +87,8 @@ var App = function (_React$Component) {
       return React.createElement(
         'div',
         null,
+        React.createElement(Username, { username: 'Ali' }),
+        React.createElement(Username, { username: 'Hasan' }),
         React.createElement(
           'p',
           { className: nameParagraphClass },

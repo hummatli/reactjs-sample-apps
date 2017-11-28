@@ -2,7 +2,12 @@
 //const element = React.createElement('p', null, 'Sattar')
 //ReactDOM.render(element, document.querySelector('#app'))
 
-//With JSX
+function Username(props) {
+  return (
+    <p>{props.username}</p>
+  )
+}
+
 class App extends React.Component {
   constructor(props) {
     super(props)
@@ -53,6 +58,8 @@ class App extends React.Component {
 
     return (
       <div>
+        <Username username="Ali"/>
+        <Username username="Hasan"/>
         <p className={nameParagraphClass}>{this.state.name}</p>
         {updateParagraph}
         <button onClick={this.changeName.bind(this)}>Change Name</button>
