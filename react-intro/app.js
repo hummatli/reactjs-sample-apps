@@ -23,7 +23,8 @@ var App = function (_React$Component) {
 
     _this.state = {
       name: props.name,
-      elements: []
+      elements: [],
+      message: ''
     };
     return _this;
   }
@@ -41,6 +42,13 @@ var App = function (_React$Component) {
       var oldElements = this.state.elements;
       this.setState({
         elements: oldElements.concat(oldElements.length + 1)
+      });
+    }
+  }, {
+    key: 'changeMessageInput',
+    value: function changeMessageInput(event) {
+      this.setState({
+        message: event.target.value
       });
     }
   }, {
@@ -92,6 +100,15 @@ var App = function (_React$Component) {
           'ul',
           null,
           list
+        ),
+        React.createElement('input', {
+          type: 'text',
+          value: this.state.message,
+          onChange: this.changeMessageInput.bind(this) }),
+        React.createElement(
+          'p',
+          null,
+          this.state.message
         )
       );
     }
